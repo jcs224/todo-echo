@@ -24,3 +24,9 @@ Route::get('todos/{id}', function($id) {
     $todo = \App\Todo::find($id);
     return response()->json($todo);
 });
+
+Route::delete('todos/{id}', function($id) {
+    $todo = \App\Todo::find($id);
+    $todo->delete();
+    return response()->json($todo);
+});
