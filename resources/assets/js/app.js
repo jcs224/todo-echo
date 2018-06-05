@@ -6,6 +6,8 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import m from 'mithril';
+import m from 'mithril'
 
-m.render(document.body, m('h1', 'Hello World!'))
+m.render(document.body, m('h1.text-center', 'Hello World!'))
+
+$(document).foundation()
