@@ -7,7 +7,8 @@ require('./bootstrap');
  */
 
 import m from 'mithril'
+import Todos from './components/Todos'
 
-m.render(document.body, m('h1.text-center', 'Hello World!'))
+m.mount(document.body, Todos)
 
 $(document).foundation()
