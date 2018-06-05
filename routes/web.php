@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,8 +27,30 @@ Route::get('todos/{id}', function($id) {
     return response()->json($todo);
 });
 
+Route::post('todos', function(Request $request) {
+    $todo = new \App\Todo;
+    $todo->text = $request->input('text');
+    $todo->completed = false;
+    $todo->save();
+    return response()->json($todo);
+});
+
 Route::delete('todos/{id}', function($id) {
     $todo = \App\Todo::find($id);
     $todo->delete();
+    return response()->json($todo);
+});
+
+Route::put('todos/{id}/complete', function($id) {
+    $todo = \App\Todo::find($id);
+    $todo->completed = true;
+    $todo->save();
+    return response()->json($todo);
+});
+
+Route::put('todos/{id}/uncomplete', function($id) {
+    $todo = \App\Todo::find($id);
+    $todo->completed = false;
+    $todo->save();
     return response()->json($todo);
 });
