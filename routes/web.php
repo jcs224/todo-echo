@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('todos');
 });
+
+Route::get('todos', function() {
+    $todos = \App\Todo::all();
+    return response()->json($todos);
+});
+
+Route::get('todos/{id}', function($id) {
+    $todo = \App\Todo::find($id);
+    return response()->json($todo);
+});
