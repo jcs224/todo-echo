@@ -7,7 +7,8 @@ let Util = {
         let headers = {
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-TOKEN': token.content
+                'X-CSRF-TOKEN': token.content,
+                'X-Socket-ID': Echo.socketId()
             }
         }
 

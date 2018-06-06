@@ -13,9 +13,18 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+        'App\Events\TodoAdded' => [
+            'App\Listeners\AddTodo'
         ],
+        'App\Events\TodoDeleted' => [
+            'App\Listeners\DeleteTodo'
+        ],
+        'App\Events\TodoCompleted' => [
+            'App\Listeners\CompleteTodo'
+        ],
+        'App\Events\TodoUncompleted' => [
+            'App\Listeners\UncompleteTodo'
+        ]
     ];
 
     /**
