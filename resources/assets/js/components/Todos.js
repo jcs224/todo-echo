@@ -29,7 +29,11 @@ let Todos = {
                                     data.completeTodo(todo.id)
                                 })
                             }),
-                            m("label", { for: 'todo-'+todo.id }, todo.text)
+                            m("label", { for: 'todo-'+todo.id }, todo.text),
+                            m('button.alert.button', {
+                                onclick: () => { data.deleteTodo(todo.id) },
+                                style: 'float: right'
+                            }, 'x')
                         ])
                     })),
                     m("ul.menu.vertical", {style: 'margin-top: 15px;'},  data.todos.filter((todo) => {
@@ -43,7 +47,11 @@ let Todos = {
                                     data.uncompleteTodo(todo.id)
                                 })
                             }),
-                            m("label", { for: 'todo-'+todo.id, style: 'text-decoration: line-through' }, todo.text)
+                            m("label", { for: 'todo-'+todo.id, style: 'text-decoration: line-through' }, todo.text),
+                            m('button.alert.button', {
+                                onclick: () => { data.deleteTodo(todo.id) },
+                                style: 'float: right'
+                            },'x')
                         ])
                     }))
                 )

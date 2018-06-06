@@ -44331,7 +44331,12 @@ var Todos = {
                 onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('checked', function () {
                     __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].completeTodo(todo.id);
                 })
-            }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id }, todo.text)]);
+            }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id }, todo.text), __WEBPACK_IMPORTED_MODULE_0_mithril___default()('button.alert.button', {
+                onclick: function onclick() {
+                    __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].deleteTodo(todo.id);
+                },
+                style: 'float: right'
+            }, 'x')]);
         })), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("ul.menu.vertical", { style: 'margin-top: 15px;' }, __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].todos.filter(function (todo) {
             return todo.completed == true ? true : false;
         }).map(function (todo) {
@@ -44341,7 +44346,12 @@ var Todos = {
                 onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('checked', function () {
                     __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].uncompleteTodo(todo.id);
                 })
-            }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id, style: 'text-decoration: line-through' }, todo.text)]);
+            }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id, style: 'text-decoration: line-through' }, todo.text), __WEBPACK_IMPORTED_MODULE_0_mithril___default()('button.alert.button', {
+                onclick: function onclick() {
+                    __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].deleteTodo(todo.id);
+                },
+                style: 'float: right'
+            }, 'x')]);
         })))))];
     }
 };
@@ -44398,6 +44408,14 @@ var Data = {
         __WEBPACK_IMPORTED_MODULE_1__lib_Util__["a" /* default */].request({
             method: 'PUT',
             url: '/api/todos/' + id + '/uncomplete'
+        }).then(function (result) {
+            Data.getTodos();
+        });
+    },
+    deleteTodo: function deleteTodo(id) {
+        __WEBPACK_IMPORTED_MODULE_1__lib_Util__["a" /* default */].request({
+            method: 'DELETE',
+            url: '/api/todos/' + id
         }).then(function (result) {
             Data.getTodos();
         });

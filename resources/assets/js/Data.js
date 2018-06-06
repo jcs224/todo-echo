@@ -48,6 +48,15 @@ let Data = {
             Data.getTodos()
 
         })
+    },
+
+    deleteTodo(id) {
+        util.request({
+            method: 'DELETE',
+            url: '/api/todos/'+id
+        }).then((result) => {
+            Data.getTodos()
+        })
     }
 }
 
