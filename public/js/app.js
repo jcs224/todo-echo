@@ -44326,8 +44326,9 @@ var Todos = {
             return todo.completed == false ? true : false;
         }).map(function (todo) {
             return __WEBPACK_IMPORTED_MODULE_0_mithril___default()("li", [__WEBPACK_IMPORTED_MODULE_0_mithril___default()("input[type='checkbox']", {
+                key: todo.id,
                 id: 'todo-' + todo.id,
-                onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('value', function () {
+                onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('checked', function () {
                     __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].completeTodo(todo.id);
                 })
             }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id }, todo.text)]);
@@ -44335,8 +44336,9 @@ var Todos = {
             return todo.completed == true ? true : false;
         }).map(function (todo) {
             return __WEBPACK_IMPORTED_MODULE_0_mithril___default()("li", [__WEBPACK_IMPORTED_MODULE_0_mithril___default()("input[type='checkbox'][checked]", {
+                key: todo.id,
                 id: 'todo-' + todo.id,
-                onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('value', function () {
+                onclick: __WEBPACK_IMPORTED_MODULE_0_mithril___default.a.withAttr('checked', function () {
                     __WEBPACK_IMPORTED_MODULE_1__Data__["a" /* default */].uncompleteTodo(todo.id);
                 })
             }), __WEBPACK_IMPORTED_MODULE_0_mithril___default()("label", { for: 'todo-' + todo.id, style: 'text-decoration: line-through' }, todo.text)]);

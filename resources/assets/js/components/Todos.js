@@ -23,8 +23,9 @@ let Todos = {
                     }).map((todo) => {
                         return m("li", [
                             m("input[type='checkbox']", {
+                                key: todo.id,
                                 id: 'todo-'+todo.id,
-                                onclick: m.withAttr('value', () => {
+                                onclick: m.withAttr('checked', () => {
                                     data.completeTodo(todo.id)
                                 })
                             }),
@@ -36,8 +37,9 @@ let Todos = {
                     }).map((todo) => {
                         return m("li", [
                             m("input[type='checkbox'][checked]", {
+                                key: todo.id,
                                 id: 'todo-'+todo.id,
-                                onclick: m.withAttr('value', () => {
+                                onclick: m.withAttr('checked', () => {
                                     data.uncompleteTodo(todo.id)
                                 })
                             }),
