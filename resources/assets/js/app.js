@@ -8,7 +8,13 @@ require('./bootstrap');
 
 import m from 'mithril'
 import Todos from './components/Todos'
+import util from './lib/Util'
 
 m.mount(document.body, Todos)
+
+util.request({method: 'GET', url: '/api/todos'})
+    .then((data) => {
+        console.log(data)
+})
 
 $(document).foundation()
