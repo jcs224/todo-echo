@@ -12,9 +12,9 @@ import util from './lib/Util'
 
 m.mount(document.body, Todos)
 
-util.request({method: 'GET', url: '/api/todos'})
-    .then((data) => {
-        console.log(data)
-})
+// util.request({method: 'GET', url: '/api/todos'})
+//     .then((data) => {
+//         console.log(data)
+// })
 
 $(document).foundation()
